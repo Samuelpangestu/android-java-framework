@@ -1,0 +1,34 @@
+package test.utils;
+
+import io.github.cdimascio.dotenv.Dotenv;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.Objects;
+import java.util.Properties;
+
+public class Utils {
+    public static Properties ELEMENTS;
+
+    public static void loadElementProperties(String directory) {
+        File folder = new File(directory);
+        File[] listOfFiles = folder.listFiles();
+        ELEMENTS = new Properties();
+
+        for (int i = 0; i < Objects.requireNonNull(listOfFiles).length; i++) {
+            if (listOfFiles[i].isFile() && listOfFiles[i].toString().contains(".properties")) {
+                try {
+                    ELEMENTS.load(new FileInputStream(directory + listOfFiles[i].getName()));
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+    public static String env(String key){
+        Dotenv dotenv = Dotenv.load();
+        return dotenv.get(key);
+    }
+}
