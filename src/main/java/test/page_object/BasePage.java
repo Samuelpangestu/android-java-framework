@@ -27,6 +27,7 @@ public class BasePage {
                 case "containsText" -> By.xpath(String.format("//*[contains(@text, '%s')]", locatorValue));
                 case "cssSelector" -> By.cssSelector(locatorValue);
                 case "accessibilityId" -> AppiumBy.accessibilityId(locatorValue);
+                case "className" -> By.className(locatorValue);
                 default -> throw new IllegalStateException("Unexpected locator type: " + locatorType);
             };
     }

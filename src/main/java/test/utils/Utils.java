@@ -5,6 +5,7 @@ import io.github.cdimascio.dotenv.Dotenv;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.time.Duration;
 import java.util.Objects;
 import java.util.Properties;
 
@@ -30,5 +31,12 @@ public class Utils {
     public static String env(String key){
         Dotenv dotenv = Dotenv.load();
         return dotenv.get(key);
+    }
+    public static void waitABit(Integer seconds) {
+        try {
+            Thread.sleep(Duration.ofSeconds(seconds).toMillis());
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 }

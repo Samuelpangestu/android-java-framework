@@ -17,8 +17,9 @@ public class AndroidDriverInstance {
         caps.setPlatformVersion("12.0");
         caps.setDeviceName("sdk_gphone64_arm64");
         caps.setUdid("emulator-5554");
-        caps.setApp("/Users/samuel/apk/2.22.0-rc2(10812).apk");
+        caps.setApp("/Users/samuel/apk/Sample Android App - Login Tes_4.0_Apkpure.apk");
         caps.setAppWaitActivity("*");
+
 
         try {
             androidDriver = new AndroidDriver(new URL("http://0.0.0.0:4723/wd/hub/"), caps);

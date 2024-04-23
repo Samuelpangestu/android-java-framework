@@ -3,24 +3,37 @@ package test.page_object;
 import static test.utils.Utils.env;
 
 public class LoginPage extends BasePage {
-    public void isOnboardingPage() {
-        assertIsDisplay("ICON_STOCKBIT_ONBOARDING_PAGE");
+    public void isOnLoginPage() {
+        assertIsDisplay("ICON_COMPANY");
+        assertIsDisplay("TEXT_VERSION");
     }
 
-    public void tapLogin() {
-        tap("BUTTON_LOGIN_ONBOARDING_PAGE");
+    public void tapRegister() {
+        tap("TEXT_REGISTER");
     }
 
-    public void inputUsername(String usernames) {
-        typeOn("FIELD_USERNAME", env(usernames));
+    public void inputName(String name) {
+        typeOn("FIELD_NAME", (name));
+    }
+
+    public void inputEmail(String email) {
+        typeOn("FIELD_EMAIL", (email));
     }
 
     public void inputPassword(String password) {
-        typeOn("FIELD_PASSWORD", env(password));
+        typeOn("FIELD_PASSWORD", (password));
     }
 
-    public void tapLoginButton() {
-        tap("BUTTON_LOGIN");
+    public void inputConfirmPassword(String confirmPassword) {
+        typeOn("FIELD_CONFIRM_PASSWORD", (confirmPassword));
+    }
+
+    public void tapRegisterButton() {
+        tap("BUTTON_REGISTER");
+    }
+
+    public void isSuccessRegisterNotif() {
+        assertIsDisplay("TEXT_SUCCESS_REGISTER");
     }
 
     public void tapSkipBiometricPopup() {
@@ -28,6 +41,7 @@ public class LoginPage extends BasePage {
     }
 
     public void tapSkipAvatarPopup() {
+
         tap("BUTTON_SKIP_AVATAR");
     }
 
