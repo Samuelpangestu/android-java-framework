@@ -14,6 +14,6 @@
 
 *How to Run*
 1. Launch IntelliJ IDE and open your project.
-2. Please makesure the test app path directory. You can setup at src/main/java/test/android_driver/AndroidDriverInstance.java
+2. Please makesure the test app path directory and any other setup that necessary. You can setup at src/main/java/test/android_driver/AndroidDriverInstance.java
 3. Navigate to the src/test/resources/features directory to access the test feature files, such as Login.feature.
 4. Right-click on the feature file you wish to test (e.g., Login.feature) and select Run from the context menu to execute the test.
