@@ -18,21 +18,25 @@ public class BasePage {
         String elementValue = Utils.ELEMENTS.getProperty(elementLocator);
 
         String[] locator = elementValue.split("_");
-            String locatorType = locator[0];
-            String locatorValue = elementValue.substring(elementValue.indexOf("_") + 1);
-            return switch (locatorType) {
-                case "id" -> By.id(locatorValue);
-                case "name" -> By.name(locatorValue);
-                case "xpath" -> By.xpath(locatorValue);
-                case "containsText" -> By.xpath(String.format("//*[contains(@text, '%s')]", locatorValue));
-                case "cssSelector" -> By.cssSelector(locatorValue);
-                case "accessibilityId" -> AppiumBy.accessibilityId(locatorValue);
-                case "className" -> By.className(locatorValue);
-                default -> throw new IllegalStateException("Unexpected locator type: " + locatorType);
-            };
+        String locatorType = locator[0];
+        String locatorValue = elementValue.substring(elementValue.indexOf("_") + 1);
+        return switch (locatorType) {
+            case "id" -> By.id(locatorValue);
+            case "name" -> By.name(locatorValue);
+            case "xpath" -> By.xpath(locatorValue);
+            case "containsText" -> By.xpath(String.format("//*[contains(@text, '%s')]", locatorValue));
+            case "cssSelector" -> By.cssSelector(locatorValue);
+            case "accessibilityId" -> AppiumBy.accessibilityId(locatorValue);
+            case "className" -> By.className(locatorValue);
+            default -> throw new IllegalStateException("Unexpected locator type: " + locatorType);
+        };
     }
 
     public AndroidDriver driver() {
+        return AndroidDriverInstance.androidDriver;
+    }
+
+    public AndroidDriver getDriver() {
         return AndroidDriverInstance.androidDriver;
     }
 
@@ -48,6 +52,7 @@ public class BasePage {
 
     public void typeOn(String element, String text) {
         waitUntil(ExpectedConditions.visibilityOfElementLocated(element(element))).sendKeys(text);
+        System.out.println(element);
     }
 
     public void assertIsDisplay(String element) {

@@ -24,6 +24,7 @@ public class AndroidDriverInstance {
         try {
             androidDriver = new AndroidDriver(new URL("http://0.0.0.0:4723/wd/hub/"), caps);
             androidDriver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+            System.out.println(androidDriver.getPageSource());
         } catch (MalformedURLException e) {
             throw new RuntimeException(e);
         }
