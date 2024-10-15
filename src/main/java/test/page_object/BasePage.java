@@ -45,14 +45,14 @@ public class BasePage {
         return wait.until(expectation);
     }
 
-    //After UI Map
     public void tap(String element) {
         waitUntil(ExpectedConditions.elementToBeClickable(element(element))).click();
     }
 
-    public void typeOn(String element, String text) {
-        waitUntil(ExpectedConditions.visibilityOfElementLocated(element(element))).sendKeys(text);
-        System.out.println(element);
+    public void typeOn(String element, String value) {
+        WebElement elementField = waitUntil(ExpectedConditions.visibilityOfElementLocated(element(element)));
+        elementField.clear();
+        elementField.sendKeys(value);
     }
 
     public void assertIsDisplay(String element) {

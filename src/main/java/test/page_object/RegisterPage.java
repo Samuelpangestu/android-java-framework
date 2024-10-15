@@ -11,7 +11,7 @@ public class RegisterPage extends BasePage {
     }
 
     public void inputName(String name) {
-        typeOn("FIELD_NAME", (name));
+        typeOn("FIELD_NAME", name);  // Use the typeOn method to input the name
     }
 
     public void inputEmail(String email) {

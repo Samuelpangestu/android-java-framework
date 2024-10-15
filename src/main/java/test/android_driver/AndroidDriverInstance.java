@@ -15,14 +15,14 @@ public class AndroidDriverInstance {
 
         caps.setPlatformName("Android");
         caps.setPlatformVersion("12.0");
-        caps.setDeviceName("sdk_gphone64_arm64");
+        caps.setDeviceName("Pixel_3a_API_31");
         caps.setUdid("emulator-5554");
         caps.setApp("/Users/samuel/apk/Sample Android App - Login Tes_4.0_Apkpure.apk");
         caps.setAppWaitActivity("*");
 
 
         try {
-            androidDriver = new AndroidDriver(new URL("http://0.0.0.0:4723/wd/hub/"), caps);
+            androidDriver = new AndroidDriver(new URL("http://0.0.0.0:4723"), caps);
             androidDriver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
             System.out.println(androidDriver.getPageSource());
         } catch (MalformedURLException e) {
